@@ -465,7 +465,10 @@ class GraphOptimizationSLAM:
                 ax.legend()
         
         plt.tight_layout()
-        plt.savefig('/Users/ali/Documents/roboex/SLAM/map_evolution.png', dpi=300, bbox_inches='tight')
+        # Create output directory if it doesn't exist
+        output_dir = os.path.join(os.path.dirname(__file__))
+        os.makedirs(output_dir, exist_ok=True)
+        plt.savefig(os.path.join(output_dir, 'map_evolution.png'), dpi=300, bbox_inches='tight')
         # plt.show()
     
     def plot_final_results(self):
@@ -506,7 +509,10 @@ class GraphOptimizationSLAM:
             ax2.legend()
         
         plt.tight_layout()
-        plt.savefig('/Users/ali/Documents/roboex/SLAM/final_results.png', dpi=300, bbox_inches='tight')
+        # Create output directory if it doesn't exist
+        output_dir = os.path.join(os.path.dirname(__file__))
+        os.makedirs(output_dir, exist_ok=True)
+        plt.savefig(os.path.join(output_dir, 'final_results.png'), dpi=300, bbox_inches='tight')
         # plt.show()
 
 def run_graph_optimization_slam(data_path, sensor_model=None, motion_model=None):
@@ -522,5 +528,6 @@ def run_graph_optimization_slam(data_path, sensor_model=None, motion_model=None)
     return slam
 
 if __name__ == "__main__":
-    data_path = "/Users/ali/Documents/roboex/data"
+    # Use relative path
+    data_path = os.path.join(os.path.dirname(__file__), '..', 'data')
     slam = run_graph_optimization_slam(data_path)

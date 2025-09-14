@@ -26,7 +26,7 @@ from graph_optimization_slam import GraphOptimizationSLAM, run_graph_optimizatio
 def main():
     """Main function that runs the complete SLAM pipeline"""
     
-    # Set data path
+    # Set data path (relative to main.py location)
     data_path = os.path.join(os.path.dirname(__file__), 'data')
     
     print("="*60)

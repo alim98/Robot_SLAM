@@ -88,7 +88,10 @@ class LidarSensorModel:
         ax3.grid(True)
         
         plt.tight_layout()
-        plt.savefig('/Users/ali/Documents/roboex/Sensor Model/lidar_calibration.png', dpi=300, bbox_inches='tight')
+        # Create output directory if it doesn't exist
+        output_dir = os.path.join(os.path.dirname(__file__))
+        os.makedirs(output_dir, exist_ok=True)
+        plt.savefig(os.path.join(output_dir, 'lidar_calibration.png'), dpi=300, bbox_inches='tight')
         # plt.show()
         
     def correct_measurement(self, measurement, expected_distance=None):
@@ -130,5 +133,6 @@ def run_sensor_model_extraction(data_path):
     return sensor_model
 
 if __name__ == "__main__":
-    data_path = "/Users/ali/Documents/roboex/data"
+    # Use relative path
+    data_path = os.path.join(os.path.dirname(__file__), '..', 'data')
     sensor_model = run_sensor_model_extraction(data_path)

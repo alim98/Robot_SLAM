@@ -96,7 +96,9 @@ class EnhancedVisualizations:
         )
         
         # Save as HTML
-        pyo.plot(fig, filename='/Users/ali/Documents/roboex/Sensor Model/interactive_sensor_analysis.html', auto_open=False)
+        output_dir = os.path.join(os.path.dirname(__file__), 'Sensor Model')
+        os.makedirs(output_dir, exist_ok=True)
+        pyo.plot(fig, filename=os.path.join(output_dir, 'interactive_sensor_analysis.html'), auto_open=False)
         
     def create_3d_sensor_analysis(self):
         """Create 3D sensor model visualization"""
@@ -161,7 +163,9 @@ class EnhancedVisualizations:
             height=700
         )
         
-        pyo.plot(fig, filename='/Users/ali/Documents/roboex/Sensor Model/sensor_3d_analysis.html', auto_open=False)
+        output_dir = os.path.join(os.path.dirname(__file__), 'Sensor Model')
+        os.makedirs(output_dir, exist_ok=True)
+        pyo.plot(fig, filename=os.path.join(output_dir, 'sensor_3d_analysis.html'), auto_open=False)
         
     def create_interactive_motion_analysis(self):
         """Create interactive motion model analysis"""
@@ -205,7 +209,9 @@ class EnhancedVisualizations:
             height=700
         )
         
-        pyo.plot(fig, filename='/Users/ali/Documents/roboex/Motion Model/interactive_motion_3d.html', auto_open=False)
+        output_dir = os.path.join(os.path.dirname(__file__), 'Motion Model')
+        os.makedirs(output_dir, exist_ok=True)
+        pyo.plot(fig, filename=os.path.join(output_dir, 'interactive_motion_3d.html'), auto_open=False)
         
         # Create motion statistics dashboard
         fig2 = make_subplots(
@@ -264,7 +270,9 @@ class EnhancedVisualizations:
         height=700
     )
     
-    pyo.plot(fig, filename='/Users/ali/Documents/roboex/SLAM/occupancy_grid_3d.html', auto_open=False)
+    output_dir = os.path.join(os.path.dirname(__file__), 'SLAM')
+    os.makedirs(output_dir, exist_ok=True)
+    pyo.plot(fig, filename=os.path.join(output_dir, 'occupancy_grid_3d.html'), auto_open=False)
 
 def create_comprehensive_error_analysis(self):
     """Create detailed error analysis plots"""
@@ -453,7 +461,9 @@ def create_comprehensive_error_analysis(self):
                 axes[1, 2].set_title('Loop Closure Analysis')
         
         plt.tight_layout()
-        plt.savefig('/Users/ali/Documents/roboex/comprehensive_error_analysis.png', 
+        output_dir = os.path.dirname(__file__)
+        os.makedirs(output_dir, exist_ok=True)
+        plt.savefig(os.path.join(output_dir, 'comprehensive_error_analysis.png'), 
                    dpi=300, bbox_inches='tight')
         # plt.show()
         

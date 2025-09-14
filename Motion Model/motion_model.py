@@ -230,7 +230,10 @@ class RobotMotionModel:
         ax4.grid(True)
         
         plt.tight_layout()
-        plt.savefig('/Users/ali/Documents/roboex/Motion Model/motion_analysis.png', dpi=300, bbox_inches='tight')
+        # Create output directory if it doesn't exist
+        output_dir = os.path.join(os.path.dirname(__file__))
+        os.makedirs(output_dir, exist_ok=True)
+        plt.savefig(os.path.join(output_dir, 'motion_analysis.png'), dpi=300, bbox_inches='tight')
         # plt.show()
     
     def print_model_summary(self):
@@ -278,5 +281,6 @@ def run_motion_model_extraction(data_path):
     return motion_model
 
 if __name__ == "__main__":
-    data_path = "/Users/ali/Documents/roboex/data"
+    # Use relative path
+    data_path = os.path.join(os.path.dirname(__file__), '..', 'data')
     motion_model = run_motion_model_extraction(data_path)

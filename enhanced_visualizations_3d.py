@@ -75,7 +75,9 @@ class Enhanced3DVisualizations:
             height=700
         )
         
-        pyo.plot(fig, filename='/Users/ali/Documents/roboex/Sensor Model/sensor_3d_analysis.html', auto_open=False)
+        output_dir = os.path.join(os.path.dirname(__file__), 'Sensor Model')
+        os.makedirs(output_dir, exist_ok=True)
+        pyo.plot(fig, filename=os.path.join(output_dir, 'sensor_3d_analysis.html'), auto_open=False)
         
     def create_3d_motion_trajectory(self):
         """Create enhanced 3D motion trajectory visualization"""
@@ -162,7 +164,9 @@ class Enhanced3DVisualizations:
             height=700
         )
         
-        pyo.plot(fig, filename='/Users/ali/Documents/roboex/Motion Model/motion_3d_enhanced.html', auto_open=False)
+        output_dir = os.path.join(os.path.dirname(__file__), 'Motion Model')
+        os.makedirs(output_dir, exist_ok=True)
+        pyo.plot(fig, filename=os.path.join(output_dir, 'motion_3d_enhanced.html'), auto_open=False)
         
     def create_3d_slam_analysis(self):
         """Create 3D SLAM trajectory visualization with uncertainty"""
@@ -257,7 +261,9 @@ class Enhanced3DVisualizations:
             height=700
         )
         
-        pyo.plot(fig, filename='/Users/ali/Documents/roboex/SLAM/slam_3d_trajectory.html', auto_open=False)
+        output_dir = os.path.join(os.path.dirname(__file__), 'SLAM')
+        os.makedirs(output_dir, exist_ok=True)
+        pyo.plot(fig, filename=os.path.join(output_dir, 'slam_3d_trajectory.html'), auto_open=False)
         
     def create_3d_occupancy_grid(self):
         """Create 3D occupancy grid visualization"""
@@ -311,7 +317,9 @@ class Enhanced3DVisualizations:
             height=700
         )
         
-        pyo.plot(fig, filename='/Users/ali/Documents/roboex/SLAM/occupancy_grid_3d.html', auto_open=False)
+        output_dir = os.path.join(os.path.dirname(__file__), 'SLAM')
+        os.makedirs(output_dir, exist_ok=True)
+        pyo.plot(fig, filename=os.path.join(output_dir, 'occupancy_grid_3d.html'), auto_open=False)
         
     def create_3d_error_analysis(self):
         """Create 3D error analysis visualization"""
@@ -407,7 +415,9 @@ class Enhanced3DVisualizations:
             height=800
         )
         
-        pyo.plot(fig, filename='/Users/ali/Documents/roboex/error_analysis_3d.html', auto_open=False)
+        output_dir = os.path.dirname(__file__)
+        os.makedirs(output_dir, exist_ok=True)
+        pyo.plot(fig, filename=os.path.join(output_dir, 'error_analysis_3d.html'), auto_open=False)
         
     def generate_all_3d_visualizations(self):
         """Generate all 3D visualizations"""
